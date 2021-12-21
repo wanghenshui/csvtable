@@ -139,7 +139,7 @@ int main(int argc, char** argv) {
     format_string.append("+\n");
     fmt::print(format_string);
   };
-  auto print_data = [size_vector](std::vector<std::string> v) {
+  auto print_data = [size_vector](const std::vector<std::string>& v) {
     std::string format_string;
     bool notequal = size_vector.size() != v.size();
     print_if(notequal, "size_vector and value vector size not equal, break: {} {}\n", size_vector, v);
@@ -157,7 +157,7 @@ int main(int argc, char** argv) {
     format_string.append("|\n");
     fmt::print(format_string);
   };
-  for (const auto c : column) {
+  for (const auto& c : column) {
     print_line();
     print_data(c);
   }
