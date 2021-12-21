@@ -1,3 +1,11 @@
+# Xmake cache
+.xmake/
+build/
+
+# MacOS Cache
+.DS_Store
+
+
 # Prerequisites
 *.d
 
@@ -30,3 +38,6 @@
 *.exe
 *.out
 *.app
+
+# coredump file
+core.**
