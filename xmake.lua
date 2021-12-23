@@ -6,7 +6,7 @@ set_warnings("all", "error")
 set_languages("c++17")
 add_defines("NDEBUG")
 if is_plat("windows") then
-    set_optimize("fastest")
+    set_optimize("faster")
     add_cxflags("/EHsc")
     add_ldflags("/SAFESEH:NO")
     if is_mode("debug") then
@@ -17,11 +17,12 @@ if is_plat("windows") then
 elseif is_plat("mingw") then
     set_optimize("faster")
 else
-    set_optimize("fastest")
+    set_optimize("faster")
     add_cxxflags("-ffast-math -s -Os -fno-stack-protector -fno-math-errno")
     add_ldflags("-Wl,-z,norelro -Wl,--hash-style=gnu")
 end
 
+set_strip("all")
 
 add_requires("csv2", {system = false, configs = {cxflags = "-O3 -ffast-math -s -Os -fno-stack-protector -fno-math-errno"}})
 add_requires("cxxopts", {system = false, configs = {cxflags = "-O3 -ffast-math -s -Os -fno-stack-protector -fno-math-errno"}})
